@@ -89,15 +89,15 @@ def nqueens(n):
     nqueens_helper(board, 0)
 
 
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: nqueens N")
-        exit(1)
-    queens = sys.argv[1]
-    if not queens.isnumeric():
-        print("N must be a number")
-        exit(1)
-    elif int(queens) < 4:
-        print("N must be at least 4")
-        exit(1)
-    nqueens(int(queens))
+
+if len(sys.argv) != 2:
+    print("Usage: nqueens N")
+    exit(1)
+queens = sys.argv[1]
+if not queens.isnumeric():
+    print("N must be a number")
+    exit(1)
+elif int(queens) < 4:
+    print("N must be at least 4")
+    exit(1)
+nqueens(int(queens))
