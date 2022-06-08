@@ -9,18 +9,13 @@ def makeChange(coins, total):
     """
     if total <= 0:
         return 0
-    coins.sort()
-    n = 0
-    while coins:
-        coin = coins.pop()
-        if coin <= total:
-            n += total//coin
-            total %= coin
+    count = 0
+    coins.sort(reverse=True)
+    for coin in coins:
+        increase = int(total / coin)
+        total -= (increase * coin)
+        count += increase
         if total == 0:
-            return n
+            return count
+
     return -1
-
-
-print(makeChange([1, 2, 25], 37))
-
-print(makeChange([1256, 54, 48, 16, 102], 1453))
