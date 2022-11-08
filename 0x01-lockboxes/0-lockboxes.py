@@ -1,21 +1,16 @@
 #!/usr/bin/python3
-'''Unlock all boxes with depth first search'''
+""" You have n number of locked boxes in front of you. Each box is numbered
+sequentially from 0 to n - 1 and each box may contain keys to the other boxes.
+"""
 
 
 def canUnlockAll(boxes):
-    '''returns true if all boxes are able to be opened'''
-
-    if len(boxes) < 2:
-        return True
-    visited = set()
-
-    def dfs(key):
-        '''is a dfs function that searches the boxes in depth'''
-
-        visited.add(key)
-        for box in boxes[key]:
-            if 0 <= box < len(boxes) and box not in visited:
-                dfs(box)
-    dfs(0)
-
-    return len(visited) == len(boxes)
+    """ Write a method that determines if all the boxes can be opened.
+    @boxes is a list of lists
+    """
+    keys = [0]
+    for n in keys:
+        for key in boxes[n]:
+            if key not in keys and key < len(boxes):
+                keys.append(key)
+    return len(keys) == len(boxes)
