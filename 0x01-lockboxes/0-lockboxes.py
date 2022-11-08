@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+'''Unlock all boxes with depth first search'''
+
+
 def canUnlockAll(boxes):
     '''returns true if all boxes are able to be opened'''
 
